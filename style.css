@@ -1,0 +1,135 @@
+* {
+  margin: 0;
+  padding: 0;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+}
+
+body {
+  background-color: #e5ecf8;
+}
+
+body h1 {
+  background-color: #4935f8;
+  font-size: 30px;
+  text-align: center;
+  padding: 10px 0;
+  margin-left: 15rem;
+  margin-right: 15rem;
+  color: #e7f5fd;
+}
+
+body form {
+  margin: 1rem 15rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 69%;
+  height: 350px;
+  border: 1px solid black;
+  padding: 25px 70px;
+}
+
+body form .A {
+  margin-left: 80px;
+}
+
+body form .A #forward {
+  height: 12px;
+  width: 12px;
+}
+
+body form .B {
+  margin-top: 17rem;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+body form .B #Save {
+  padding: 10px 22px;
+  padding-bottom: 28px;
+  background-color: blue;
+  color: white;
+  border-radius: 10px;
+  font-size: 16px;
+  border: none;
+}
+
+body form .B #Reset {
+  padding: 10px 22px;
+  padding-bottom: 28px;
+  background-color: #ff3c3c;
+  color: white;
+  border-radius: 10px;
+  font-size: 16px;
+  border: none;
+}
+
+body form .B Button {
+  margin: 0px 8px;
+}
+
+body form label {
+  font-size: 15px;
+  font-weight: bolder;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+}
+
+body form input {
+  padding-right: 100px;
+  padding-top: 6px;
+  padding-bottom: 6px;
+  padding-left: 8px;
+  margin-top: 6px;
+  border-radius: 5px;
+  width: 270px;
+  height: 32px;
+  border: none;
+}
+
+body table {
+  margin: 1px 0 0px 240px;
+  width: 69.2%;
+}
+
+body table thead {
+  padding: 0px 16px;
+  background-color: #ffeda6;
+  width: 100%;
+}
+
+body table thead th {
+  padding: 10px;
+  border: 1px solid #bfcefc;
+}
+
+body table tbody {
+  background-color: #e4f6fd;
+}
+
+body table tbody td {
+  padding: 8px;
+  border: 1px solid #bfcefc;
+}
+
+#edit {
+  padding: 10px 20px;
+  background-color: blue;
+  color: white;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  border: none;
+}
+
+#delete {
+  padding: 10px 20px;
+  background-color: #f83d46;
+  color: white;
+  border-radius: 10px;
+  font-size: 12px;
+  font-weight: bold;
+  border: none;
+}
+/*# sourceMappingURL=style.css.map */

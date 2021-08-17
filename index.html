@@ -1,0 +1,148 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="style.css">
+    <title>CRUD APP</title>
+
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <!-- <script src="~/Scripts/jquery-3.3.1.js"></script> -->
+    <!-- <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script> -->
+    <!-- <script src="https://ajax.aspnetcdn.com/ajax/jQuery/jquery-3.6.0.js"></script> -->
+    <script src="js/jquery-3.6.0.min.js"></script>
+    <script src="js/myjquery.js"></script>
+
+
+    
+</head>
+
+
+<body>
+
+    <h1><b>Forward Rate</b></h1>
+    <form id="myForm">
+        <div class="A">
+
+            <div>
+                <label>ForwardRateTo : </label>
+                <input type="radio" id="forward" name="radioName" value="All">
+                <label for="All" style="font-weight: normal;">All</label>
+                <input type="radio" id="forward" name="radioName" value="Country">
+                <label for="Country" style="font-weight: normal;">Country</label>
+            </div>
+            <br />
+            <div>
+                <label>ZipCode</label> <br />
+                <input type="text" id="txtZipCode" placeholder="enter ZipCode" />
+            </div>
+            <br />
+            <div>
+                <label>CityName</label> <br />
+                <input type="text" id="txtCityName" placeholder="enter CityName " />
+
+            </div>
+            <br />
+            <div>
+                <label>CommodityName</label> <br />
+                <input type="text" id="txtCommmodityName" placeholder="enter Commodity name" />
+            </div>
+        </div>
+
+        <div class="B">
+            <button id="Save" >Save</button>
+            <button type="reset" id="Reset" onclick="clear()">Clear</button>
+
+        </div>
+        <div>
+            <br /><br />
+            <div><label> RefNo </label> <br />
+                <input type="text" id="txtRefNo" placeholder="enter RefNo " />
+            </div>
+            <br />
+            <div>
+                <label> ValidFrom </label> <br />
+                <input type="datetime-local" style="width: 320px;height:30px" id="dateinput1"
+                    placeholder=" select date" />
+            </div>
+            <br />
+            <div>
+                <label> ValidTo </label> <br />
+                <input type="datetime-local" style="width: 320px;height:30px" id="dateinput"
+                    placeholder=" select date" />
+            </div>
+        </div>
+    </form>
+
+    <table>
+        <thead>
+            <tr>
+                <th>SNo </th>
+                <th>ForwardRateTo </th>
+                <th>CityName </th>
+                <th>ZipCode </th>
+                <th>CommodityName </th>
+                <th>RefNo </th>
+                <th>ValidTo </th>
+                <th>ValidFrom </th>
+                <th>Action </th>
+            </tr>
+        </thead>
+        <tbody id="ForwardRateMaster"></tbody>
+    </table>
+    <script>//Get Data inside table
+ 
+
+        //save
+        var Sno = '';
+        var dynamicURL = '';
+        var methodName = '';
+        $(document).ready(function () {
+            getData();
+        });
+       // debugger
+        $("#Save").click(function () {
+
+            var SaveForwardRate = {};
+            SaveForwardRate.CityName = $('#txtCityName').val();
+            SaveForwardRate.ZipCode = $('#txtZipCode').val();
+            SaveForwardRate.ForwardRateTo = $("input[name='radioName']:checked").val();
+            SaveForwardRate.CommodityName = $('#txtCommmodityName').val();
+            SaveForwardRate.RefNo = $('#txtRefNo').val();
+
+            SaveForwardRate.ValidTo = $('#dateinput1').val();
+            SaveForwardRate.ValidFrom = $('#dateinput').val();
+            if (Sno) {
+                dynamicURL = "http://localhost:49300/api/ForwardRate/UpdateForwardRate";
+                methodName = 'Put';
+                SaveForwardRate.SNo = Sno;
+            } else {
+                dynamicURL = "http://localhost:49300/api/ForwardRate/SaveForwardRate";
+                methodName = "Post";
+            }
+            if (SaveForwardRate) {
+                $.ajax({
+                    url: dynamicURL,
+                    contentType: "application/json; charset=utf-8",
+                    dataType: "json",
+                    data: JSON.stringify(SaveForwardRate),
+                    type: methodName,
+                    success: function (result) {
+                   
+                        alert("Added Successfully");
+                        getData();
+                    },
+                    error: function (msg) {
+                        alert(msg);
+                    }
+                })
+            }
+        })
+
+       
+</script>
+</body>
+
+</html>
